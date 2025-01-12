@@ -14,6 +14,7 @@ Loving uv.  The below with uv works on Windows and Linux.
 > see [uv tool vs uvx](https://docs.astral.sh/uv/concepts/tools/#tool-environments)
 
 - `uv tool install opentrons@8.3.0a2 --python 3.10 --prerelease=allow`
+  - note that when I tried this without the `--prerelease=allow` I got an excellent error message from uv.
 - `uv run opentrons_simulate --version --python 3.10`
 - `uv run opentrons_simulate --help --python 3.10`
 
