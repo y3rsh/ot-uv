@@ -41,6 +41,7 @@ example1.py and example2.py have this at the top:
 
 An effective setup.  These are great tools we have trusted for years but uv is easier and faster.
 
+1. @y3rsh did the work to create the Pipfile and Pipfile.lock so that you can just `pipenv install` and go.
 1. [have pyenv and pipenv and then 3.10.* installed with pyenv](https://github.com/Opentrons/opentrons/blob/edge/DEV_SETUP.md#2-install-pyenv-and-python)
 1. `pyenv local 3.10`
 1. `pipenv install`
