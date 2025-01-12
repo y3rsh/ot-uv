@@ -1,4 +1,4 @@
-# Opentrons Simulate with uv versus pyenv + pipenv
+# Opentrons Simulate with `uv` versus `pyenv + pipenv`
 
 - inspired by [Python Bytes](https://pythonbytes.fm/episodes/show/415/just-put-the-fries-in-the-bag-bro)
 - [Trey Hunter article](https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/?featured_on=pythonbytes)
