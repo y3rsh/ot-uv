@@ -1,4 +1,4 @@
-# Opentrons Simulate with uv vs pipenv + pyenv
+# Opentrons Simulate with uv versus pipenv + pyenv
 
 - inspired by [Python Bytes](https://pythonbytes.fm/episodes/show/415/just-put-the-fries-in-the-bag-bro)
 - [Trey Hunter article](https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/?featured_on=pythonbytes)
@@ -20,7 +20,19 @@ Loving uv.  The below with uv works on Windows and Linux.
 
 ### Programmatic simulate with uv
 
-> uv will read the [script with embedded metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#example) in the python file and get you the right python and dependencies.
+example1.py and example2.py have this at the top:
+
+```python
+# /// script
+# requires-python = "==3.10.*"
+# dependencies = [
+#     "opentrons==8.3.0a2",
+#     "opentrons-shared-data==8.3.0a2",
+# ]
+# ///
+```
+
+> uv will read this [script with embedded metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#example) and get you the right python (if you didn't already have it) and dependencies.
 
 - `uv run example1.py`
 - `uv run example2.py`
