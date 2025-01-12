@@ -6,16 +6,15 @@
 # ]
 # ///
 
-from opentrons.simulate import simulate
+from opentrons.simulate import simulate, format_runlog
 
 def from_pypi_doc(): # https://pypi.org/project/opentrons/
-    protocol_file = open("protein_quant_and_normal.py")
-    simulate(protocol_file)
+    protocol_file = open("IDT_xGen_EZ_48x_v8.py")
+    runlog, _bundle = simulate(protocol_file)
+    print(format_runlog(runlog))
 
 def main():
     from_pypi_doc()
-    for i in range(3):
-        print("**************************************************")
 
 if __name__ == "__main__":
     main()
