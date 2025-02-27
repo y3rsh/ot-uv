@@ -5,6 +5,9 @@
 
 Loving uv.  The below with uv works on Linux.
 
+https://github.com/user-attachments/assets/ecc30634-dc05-4ebc-af9c-eefb6036af21
+
+
 ## uv
 
 - [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
