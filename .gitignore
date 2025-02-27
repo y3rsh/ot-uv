@@ -146,3 +146,4 @@ protocols/*
 !protocols/IDT_xGen_EZ_48x_v8.py
 !protocols/PCR-1.json
 !protocols/pl_BacteriaInoculation_Flex_6plates.py
+!protocols/PD_bad_format.json

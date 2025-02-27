@@ -66,9 +66,9 @@ class TargetProtocol:
         }
 
     def write_failed_analysis(self) -> None:
-        analysis = self.create_failed_analysis()
+        self.analysis = self.create_failed_analysis()
         with open(self.analysis_file, "w") as file:
-            json.dump(analysis, file, indent=4)
+            json.dump(self.analysis, file, indent=4)
 
     def set_analysis(self) -> None:
         if self.analysis_file_exists:
@@ -93,7 +93,7 @@ class TargetProtocol:
         self.analysis_execution_time = analysis_execution_time
 
 
-def analyze(protocol: TargetProtocol) -> bool:
+def analyze(protocol: TargetProtocol) -> TargetProtocol:
     command = [
         "uv",
         "run",
@@ -122,18 +122,17 @@ def analyze(protocol: TargetProtocol) -> bool:
         protocol.command_output = process.stdout + process.stderr
         protocol.command_exit_code = exit_code
         protocol.set_analysis()
-        return True
     except Exception as e:
         console.print(f"An unexpected error occurred: {e}")
         protocol.command_output = str(e)
         protocol.command_exit_code = exit_code if exit_code is not None else -1
         protocol.set_analysis()
-        return False
     finally:
         protocol.set_analysis_execution_time(time.time() - start_time)
         console.print(
             f"Analysis of {protocol.protocol_file.name} completed in {protocol.analysis_execution_time:.2f} seconds."
         )
+    return protocol
 
 
 def main():
@@ -179,11 +178,15 @@ def main():
             custom_labware_paths=custom_labware_paths,
         )
 
-        result = analyze(protocol)
-        status = "[green]succeeded[/green]" if result else "[red]failed[/red]"
+        analyze(protocol)
+        status = (
+            "[green]has no errors.[/green]"
+            if protocol.analysis["errors"] == []
+            else "[red]has errors.[/red]"
+        )
         console.print(f"Analysis of {protocol_file.name} {status}")
 
-    console.print("[bold green]Protocol analysis complete![/bold green]")
+    console.print("[bold green]Done analyzing protocols![/bold green]")
 
 
 if __name__ == "__main__":
