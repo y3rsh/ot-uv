@@ -133,3 +133,16 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Project specific directories
+results/*
+!results/.keepme
+custom_labware/*
+!custom_labware/.keepme
+!custom_labware/Omni_Plate_with_Tilt_Adapter.json
+!custom_labware/Omni_Tray_Single_Well_Plate.json
+protocols/*
+!protocols/.keepme
+!protocols/IDT_xGen_EZ_48x_v8.py
+!protocols/PCR-1.json
+!protocols/pl_BacteriaInoculation_Flex_6plates.py
