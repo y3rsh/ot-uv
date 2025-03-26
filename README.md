@@ -5,8 +5,9 @@
 
 Loving uv.  The below with uv works on Linux and Windows.
 
-https://github.com/user-attachments/assets/ecc30634-dc05-4ebc-af9c-eefb6036af21
+## YouTube video of how to
 
+<https://youtu.be/sOkQarSADIc>
 
 ## uv
 
