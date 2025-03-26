@@ -1,8 +1,8 @@
 # /// script
 # requires-python = "==3.10.*"
 # dependencies = [
-#     "opentrons==8.3.0",
-#     "opentrons-shared-data==8.3.0",
+#     "opentrons @ git+https://github.com/Opentrons/opentrons.git@release#subdirectory=api",
+#     "opentrons-shared-data @ git+https://github.com/Opentrons/opentrons.git@release#subdirectory=shared-data/python",
 #     "rich",
 # ]
 # ///
