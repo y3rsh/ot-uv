@@ -1,4 +1,18 @@
-# Opentrons Simulate or Analyze with `uv`
+# Opentrons with uv
+
+## Find robots on your network
+
+### Install uv
+
+- [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+### Run the script
+
+- Clone this repo
+- In this directory
+  - `uv run robots.py`
+
+## Opentrons Simulate or Analyze with `uv`
 
 - inspired by [Python Bytes](https://pythonbytes.fm/episodes/show/415/just-put-the-fries-in-the-bag-bro)
 - [Trey Hunter article](https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/?featured_on=pythonbytes)
