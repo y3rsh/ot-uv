@@ -99,6 +99,11 @@ async def fetch_and_update_status(device: Device, client: httpx.AsyncClient):
 
 
 async def poll_status_async():
+    """
+    For the first 15 seconds, poll with a very short sleep interval (0.5 sec).
+    Then change the polling interval to every 5 minutes.
+    """
+    poll_start = time.monotonic()
     async with httpx.AsyncClient() as client:
         while True:
             tasks = []
@@ -107,8 +112,12 @@ async def poll_status_async():
                     tasks.append(fetch_and_update_status(device, client))
             if tasks:
                 await asyncio.gather(*tasks)
-            # Poll as fast as possible; adjust the sleep interval as needed.
-            await asyncio.sleep(0.5)
+            elapsed = time.monotonic() - poll_start
+            if elapsed < 15:
+                sleep_duration = 0.5
+            else:
+                sleep_duration = 300  # 5 minutes
+            await asyncio.sleep(sleep_duration)
 
 
 def start_async_loop(loop):
@@ -120,14 +129,7 @@ def start_async_loop(loop):
 
 
 def generate_spinner_line() -> str:
-    spinner_frames = [
-        "|",
-        "/",
-        "-",
-        "|",
-        "/",
-        "-",
-    ]
+    spinner_frames = ["|", "/", "-", "\\"]  # spinner frames
     frame = spinner_frames[int(time.time() * 2) % len(spinner_frames)]
     if discovered:
         names = ", ".join(sorted(discovered.keys()))
